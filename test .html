@@ -142,7 +142,7 @@
     class Header extends React.Component {
         constructor(props) {
             super(props);
-            this.props = props;
+            this.state = props;
         }
 
         render() {
@@ -150,7 +150,7 @@
                 <header>
                     <div className="container">
                         <a href="#" className="logo">
-                            <img src={this.props.src}/>
+                            <img src={this.state.src}/>
                         </a>
                         <nav className="main-nav">
                         </nav>
@@ -208,13 +208,13 @@
     class AboutCards extends React.Component {
         constructor(props) {
             super(props);
-            this.props = props;
+            this.state = props;
         }
         render() {
             return (
-                <div className={this.props.className}>
-                    <h3>{this.props.title}</h3>
-                    <p>{this.props.text}</p>
+                <div className={this.state.className}>
+                    <h3>{this.state.title}</h3>
+                    <p>{this.state.text}</p>
                 </div>
             );
         }
@@ -223,11 +223,11 @@
     class NavLink extends React.Component {
         constructor(props) {
             super(props);
-            this.props = props;
+            this.state = props;
         }
         render() {
             return (
-                <a href="#">{this.props.text}</a>
+                <a href="#">{this.state.text}</a>
             );
         }
     }
