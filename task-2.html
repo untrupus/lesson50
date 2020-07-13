@@ -1,0 +1,249 @@
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<style>
+    body {
+        font-family: arial, sans-serif;
+        margin: 0;
+    }
+
+    header {
+        text-align: center;
+        background-color: #02918c;
+        padding: 10px 0;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: inline-block;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .main-nav a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 0 35px;
+    }
+
+    .main-block {
+        background-image: url(./images/main-pic.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 100px 0;
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        line-height: 33px;
+
+    }
+
+    .btn {
+        color: #000;
+        background-color: #cfc91d;
+        font-size: 14px;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 50px;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin: 120px 20px;
+        letter-spacing: 4px;
+    }
+
+    footer {
+        background-color: black;
+        color: #7e8287;
+        font-size: 12px;
+        text-align: right;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 48px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+        letter-spacing: 23px;
+    }
+
+    h2 {
+        color: #02918c;
+        font-size: 46px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 100px;
+        margin-bottom: 70px;
+    }
+
+    .about {
+        text-align: center;
+        color: #4e5052;
+        font-size: 16px;
+        line-height: 41px;
+    }
+
+    .block-1 {
+        background-image: url(./images/ic-lamp.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .block-2 {
+        background-image: url(./images/ic-pencil.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .block-3 {
+        background-image: url(./images/ic-set.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .block-4 {
+        background-image: url(./images/ic-laptop.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .blocks {
+        color: #4e5052;
+        font-size: 14px;
+        margin-top: 60px;
+
+    }
+
+    .block {
+        width: 24%;
+        display: inline-block;
+        margin-bottom: 100px;
+        vertical-align: top;
+        background-position: top;
+        line-height: normal;
+    }
+
+    h3 {
+        margin-top: 55px;
+    }
+</style>
+<div id="body"></div>
+
+<script type="text/babel">
+    const Header = props => {
+        return (
+            <header>
+                <div className="container">
+                    <a href="#" className="logo">
+                        <img src={props.src}/>
+                    </a>
+                    <nav className="main-nav">
+                        <a href="#">Home</a>
+                        <a href="#">Premium PSD files</a>
+                        <a href="#">UI kits</a>
+                        <a href="#">Services</a>
+                        <a href="#">My works</a>
+                        <a href="#">Contact me</a>
+                    </nav>
+                </div>
+            </header>
+        );
+    }
+    const MainBlock = () => {
+        return (
+            <div className="main-block">
+                <div className="container">
+                    <h1>Incididunt Bore </h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio inventore explicabo at est minima
+                        unde,
+                        iure cupiditate, quasi, veniam corporis commodi nemo sequi consequatur maxime? Lorem ipsum dolor
+                        sit
+                        amet consectetur adipisicing elit. Autem facilis, harum similique nesciunt placeat eius!</p>
+                    <a href="" className="btn">Know More</a>
+                </div>
+            </div>
+        );
+    }
+    const About = () => {
+        return (
+            <div className="about">
+                <div className="container">
+                    <h2>About Me</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio officiis perferendis odit
+                        blanditiis
+                        doloribus, at quisquam laudantium repellendus deserunt recusandae inventore hic sunt adipisci
+                        <b>consequuntur suscipit, fugit dolor quidem</b> nostrum unde id. Totam aliquid, iusto ad
+                        doloremque
+                        distinctio
+                        nisi magni?</p>
+                </div>
+                <div className="container">
+                    <div className="blocks" id="blocks">
+                    </div>
+                </div>
+
+            </div>
+        );
+    }
+    const Footer = () => {
+        return (
+            <footer>
+                <div className="container">
+                    <p>© MyFolio</p>
+                </div>
+            </footer>
+        );
+    }
+    const AboutCards = props => {
+        return (
+            <div className={props.className}>
+                <h3>{props.title}</h3>
+                <p>{props.text}</p>
+            </div>
+        );
+    }
+
+    const page = (
+        <React.Fragment>
+            <Header src="./images/logo.png"/>
+            <MainBlock/>
+            <About/>
+            <Footer/>
+        </React.Fragment>
+    );
+    const container = document.querySelector('#body');
+    ReactDOM.render(page, container);
+
+    const blocks = (
+        <React.Fragment>
+            <AboutCards className="block block-1" title="Our Story"
+                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium natus reiciendis minus iusto.
+                        Voluptatum eum dolor velit voluptate sapiente ut!"/>
+            <AboutCards className="block block-2" title="Recomendations"
+            text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minus debitis ratione
+                                deserunt
+                                repudiandae sunt modi. Dolores dicta at quae?"/>
+            <AboutCards className="block block-3" title="The Main Ivent"
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio veritatis ut
+                                exercitationem!"/>
+            <AboutCards className="block block-4" title="Our Clients"
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, provident earum. Velit
+                                porro
+                                expedita ad! Quo natus sint recusandae odio maxime excepturi non amet officia?"/>
+        </React.Fragment>
+    );
+    const aboutBlock = document.querySelector('#blocks');
+    ReactDOM.render(blocks, aboutBlock);
+
+</script>
+
+

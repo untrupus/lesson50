@@ -1,0 +1,61 @@
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<style>
+    #movies {
+        display: flex;
+        margin: 20px;
+    }
+    .movie {
+        margin: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px #ccc;
+        width: 200px;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .movie:hover {
+        background: #eeeeee;
+    }
+    h3 {
+        color: #8b0000;
+        flex-grow: 1;
+    }
+    img {
+        width: 200px;
+        height: 285px;
+    }
+    p {
+        margin: 0;
+        font-weight: bold;
+    }
+
+</style>
+
+<div id="movies"></div>
+
+<script type="text/babel">
+    const Movie = props => {
+        return (
+            <div className="movie">
+                <img src={props.src}/>
+                    <h3>{props.name}</h3>
+                    <p>Year: {props.year}</p>
+            </div>
+        );
+    }
+
+    const people = (
+        <React.Fragment>
+            <Movie name="The Lord of the Rings: The Fellowship of the Ring" year="2001" src="https://oc.kg/media/thumbnails/0/9/09f2ce58837b4e1cb1182d012601ce03_200x293.jpg"/>
+            <Movie name="The Lord of the Rings: The Two Towers" year="2002" src="https://oc.kg/media/thumbnails/1/d/1dc3f3f46d235150dcfbefaabe058f50_200x311.jpg"/>
+            <Movie name="The Lord of the Rings: The Return of the King" year="2003" src="https://oc.kg/media/thumbnails/6/7/67b25b24cf7f96bb77610da31cca9d7a_200x285.jpg"/>
+        </React.Fragment>
+    );
+    const container = document.querySelector('#movies');
+    ReactDOM.render(people, container);
+</script>
